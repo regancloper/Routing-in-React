@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import Films from './Films';
 
 class App extends Component {
     render() {
@@ -11,7 +12,7 @@ class App extends Component {
                     <Link className="btn btn-success" to="/people">View People</Link>
                     <Switch>
                         <Route exact path="/" />
-                        <Route exact path="/films" />
+                        <Route exact path="/films" component={Films} />
                         <Route path="/films/:id" />
                         <Route exact path="/people" />
                         <Route path="/people/:id" />
