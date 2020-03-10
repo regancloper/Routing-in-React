@@ -3,7 +3,7 @@ import '../App.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
-const Item = (props) => {
+const Film = (props) => {
     return (
         <div className="col-md-4 py-2">
             <div className="card h-100">
@@ -25,4 +25,4 @@ const Item = (props) => {
 }
 
 
-export default Item;
+export default Film;

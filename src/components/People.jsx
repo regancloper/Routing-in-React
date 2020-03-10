@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
-import Film from './Film';
+import Person from './Person';
 
-class Films extends Component {
+class People extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            films: []
+            people: []
         }
     }
 
     componentDidMount() {
-        fetch("https://ghibliapi.herokuapp.com/films")
+        fetch("https://ghibliapi.herokuapp.com/people")
             .then(res => res.json())
-            .then(arr => this.setState({ films: arr }))
+            .then(arr => this.setState({ people: arr }))
             .catch(err => console.log(err));
     }
 
     render() {
-        let collection = this.state.films.map((item) => {
+        let peopleData = this.state.people.map((person) => {
             return (
-                <Film key={item.id} item={item} />
+                <Person key={person.id} details={person} />
             );
         });
 
         return (
             <div className="container">
-                <div className="card-group">{collection}</div>
+                <div className="card-group">{peopleData}</div>
             </div>
+
         );
     }
 }
 
-export default Films;
+export default People;
