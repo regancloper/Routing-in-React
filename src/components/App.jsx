@@ -6,11 +6,15 @@ class App extends Component {
         return (
             <Router>
                 <Fragment>
-                    <Link to="/">Go to Page 1</Link>
-                    <Link to="page2">Go to Page 2</Link>
+                    <Link className="btn btn-primary" to="/">Go Home</Link>
+                    <Link className="btn btn-secondary" to="/films">View Films</Link>
+                    <Link className="btn btn-success" to="/people">View People</Link>
                     <Switch>
-                        <Route path="/" />
-                        <Route path="/page2" />
+                        <Route exact path="/" />
+                        <Route exact path="/films" />
+                        <Route path="/films/:id" />
+                        <Route exact path="/people" />
+                        <Route path="/people/:id" />
                     </Switch>
                 </Fragment>
             </Router>
