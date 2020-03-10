@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import Films from './Films';
+import FilmDetail from './FilmDetail';
+
 
 class App extends Component {
     render() {
@@ -13,7 +15,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" />
                         <Route exact path="/films" component={Films} />
-                        <Route path="/films/:id" />
+                        <Route path="/films/:id" component={FilmDetail}/>
                         <Route exact path="/people" />
                         <Route path="/people/:id" />
                     </Switch>

@@ -21,7 +21,7 @@ class Films extends Component {
     render() {
         return (
             <div className="container">
-                <Collection films={this.state.films} />
+                <Collection items={this.state.films} />
             </div>
         );
     }
