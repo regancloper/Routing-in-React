@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import Film from './Film';
+import Film from '../components/Film';
 
 class Films extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            films: []
-        }
+    state = {
+        films: []
     }
 
     componentDidMount() {
         fetch("https://ghibliapi.herokuapp.com/films")
             .then(res => res.json())
-            .then(arr => this.setState({ films: arr }))
+            .then(films => this.setState({ films }))
             .catch(err => console.log(err));
     }
 

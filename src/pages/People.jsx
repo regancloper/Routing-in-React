@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import Person from './Person';
+import Person from '../components/Person';
 
 class People extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            people: []
-        }
+    state = {
+        people: []
     }
 
     componentDidMount() {

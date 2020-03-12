@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class FilmDetail extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            details: {}
-        }
+    state = {
+        details: {}
     }
+
 
     componentDidMount() {
         const id = this.props.match.params.id;
         fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
             .then(res => res.json())
-            .then(data => this.setState({ details: data }))
+            .then(details => this.setState({ details }))
             .catch(err => console.log(err));
     }
 
@@ -27,6 +25,7 @@ class FilmDetail extends Component {
                 <p>Producer: {this.state.details.producer}</p>
                 <p>Release Date: {this.state.details.release_date}</p>
                 <p>Rotton Tomatoes Score: {this.state.details.rt_score}</p>
+                <Link className="btn btn-link" to="/films">Go Back</Link>
             </div>
 
         );;

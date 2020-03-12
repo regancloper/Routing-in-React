@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class PersonDetail extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            details: {}
-        }
+    state = {
+        details: {}
     }
+
 
     componentDidMount() {
         const id = this.props.match.params.id;
         fetch(`https://ghibliapi.herokuapp.com/people/${id}`)
             .then(res => res.json())
-            .then(data => this.setState({ details: data }))
+            .then(details => this.setState({ details }))
             .catch(err => console.log(err));
     }
 
@@ -26,9 +24,10 @@ class PersonDetail extends Component {
                 <p>Gender: {this.state.details.gender}</p>
                 <p>Eye Color: {this.state.details.eye_color}</p>
                 <p>Hair Color: {this.state.details.hair_color}</p>
+                <Link className="btn btn-link" to="/people">Go Back</Link>
             </div>
 
-        );;
+        );
 
     }
 }
